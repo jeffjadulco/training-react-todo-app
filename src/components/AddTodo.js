@@ -1,33 +1,31 @@
-import React, { Component } from 'react'
+import React, { useState } from 'react'
 
-export class AddTodo extends Component {
-    state = {
-        title: ''
-    }
+function AddTodo(props) {
+    const [title, setTitle] = useState('');
 
-    render() {
-        return (
-          <form style={{ display: "flex" }} onSubmit={this.onSubmit}>
-            <input
-              type="text"
-              name="title"
-              placeholder="Add to do..."
-              style={{ flex: "10" }}
-              value = {this.state.title}
-              onChange={this.onChange}
-            />
-            <input type="submit" value="Submit" style={{ flex: "1" }} />
-          </form>
-        );
-    }
+    const onChange = e => setTitle(e.target.value);
 
-    onChange = (e) => this.setState({title: e.target.value});
-
-    onSubmit = (e) => {
+    const onSubmit = e => {
         e.preventDefault();
-        this.props.addTodo(this.state.title);
-        this.setState({title: ''});
+        props.addTodo(title);
+        setTitle('');
     }
+
+    return (
+      <form style={{ display: "flex" }} onSubmit={onSubmit}>
+        <input
+          type="text"
+          name="title"
+          placeholder="Add to do..."
+          style={{ flex: "10" }}
+          value = {title}
+          onChange={onChange}
+        />
+        <input type="submit" value="Submit" style={{ flex: "1" }} />
+      </form>
+    )
+
+
 }
 
 export default AddTodo
