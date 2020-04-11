@@ -12,20 +12,30 @@ function AddTodo(props) {
   };
 
   return (
-    <form className="field" onSubmit={onSubmit}>
-      <div className="field is-grouped">
-        <input
-          type="text"
-          name="title"
-          placeholder="Add to do..."
-          // style={{ flex: "10" }}
-          className="input"
-          value={title}
-          onChange={onChange}
-        />
-        <input type="submit" value="Submit" className="button is-primary" />
+    <div className="columns is-centered">
+      <div className="column is-half">
+        <section className="section is-small">
+          <form className="field" onSubmit={onSubmit}>
+            <div className="field is-grouped">
+              <input
+                type="text"
+                name="title"
+                placeholder="Do something..."
+                className="input is-rounded is-grey-dark is-large"
+                value={title}
+                onChange={onChange}
+              />
+              {/* <input
+                type="submit"
+                value="Submit"
+                className="button is-primary"
+                style={{ display: none }}
+              /> */}
+            </div>
+          </form>
+        </section>
       </div>
-    </form>
+    </div>
   );
 }
 

@@ -7,6 +7,10 @@ import AboutApi from "./components/pages/AboutApi";
 import axios from "axios";
 import { v4 as uuid } from "uuid";
 import "./App.css";
+import { library } from "@fortawesome/fontawesome-svg-core";
+import { faTrash, faCheckCircle } from "@fortawesome/free-solid-svg-icons";
+
+library.add(faTrash, faCheckCircle);
 
 function App() {
   const [todos, setTodos] = useState([]);
@@ -61,7 +65,7 @@ function App() {
   return (
     <Router>
       <div className="container">
-        <Header />
+        {/* <Header /> */}
         <Route exact path="/">
           <AddTodo addTodo={addTodo} />
           <Todos
