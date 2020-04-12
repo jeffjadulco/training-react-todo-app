@@ -17,7 +17,7 @@ function AddTodo(props) {
         <input
           type="text"
           placeholder="Add to do ..."
-          className="bg-white border-none w-full text-gray-800 font-bold text-lg mr-3 py-5 px-10  focus:outline-none placeholder-gray-600 focus:bg-gray-200"
+          className="bg-gray-200 border-none w-full text-gray-800 font-bold text-lg mr-3 py-5 px-10  focus:outline-none placeholder-gray-600 focus:bg-gray-300"
           value={title}
           onChange={onChange}
         />
