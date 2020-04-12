@@ -6,7 +6,6 @@ import Todos from "./components/Todos";
 import AboutApi from "./components/pages/AboutApi";
 import axios from "axios";
 import { v4 as uuid } from "uuid";
-import "./App.css";
 import { library } from "@fortawesome/fontawesome-svg-core";
 import { faTrash, faCheckCircle } from "@fortawesome/free-solid-svg-icons";
 
@@ -64,7 +63,7 @@ function App() {
 
   return (
     <Router>
-      <div className="container">
+      <div className="container mx-auto px-4">
         {/* <Header /> */}
         <Route exact path="/">
           <AddTodo addTodo={addTodo} />

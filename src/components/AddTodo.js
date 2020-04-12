@@ -12,29 +12,16 @@ function AddTodo(props) {
   };
 
   return (
-    <div className="columns is-centered">
-      <div className="column is-half">
-        <section className="section is-small">
-          <form className="field" onSubmit={onSubmit}>
-            <div className="field is-grouped">
-              <input
-                type="text"
-                name="title"
-                placeholder="Do something..."
-                className="input is-rounded is-grey-dark is-large"
-                value={title}
-                onChange={onChange}
-              />
-              {/* <input
-                type="submit"
-                value="Submit"
-                className="button is-primary"
-                style={{ display: none }}
-              /> */}
-            </div>
-          </form>
-        </section>
-      </div>
+    <div className="max-w-lg overflow-hidden my-10 mx-auto rounded-full shadow-lg">
+      <form className="w-full max-w-lg" onSubmit={onSubmit}>
+        <input
+          type="text"
+          placeholder="Add to do ..."
+          className="bg-white border-none w-full text-gray-800 font-bold text-lg mr-3 py-5 px-10  focus:outline-none placeholder-gray-600 focus:bg-gray-200"
+          value={title}
+          onChange={onChange}
+        />
+      </form>
     </div>
   );
 }
