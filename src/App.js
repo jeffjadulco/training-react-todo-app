@@ -55,6 +55,15 @@ function App() {
       .then((res) => setTodos([...todos.filter((todo) => todo.id !== id)]));
   };
 
+  const updateTitle = (id, title) => {
+    setTodos(
+      todos.map((todo) => {
+        if (todo.id === id) todo.title = title;
+        return todo;
+      })
+    );
+  };
+
   useEffect(() => {
     axios
       .get("https://jsonplaceholder.typicode.com/todos?_limit=10")
@@ -71,6 +80,7 @@ function App() {
             todos={todos}
             toggleComplete={toggleComplete}
             deleteTodo={deleteTodo}
+            updateTitle={updateTitle}
           />
         </Route>
         <Route path="/api">

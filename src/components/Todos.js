@@ -11,6 +11,7 @@ function Todos(props) {
           todo={todo}
           toggleComplete={props.toggleComplete}
           deleteTodo={props.deleteTodo}
+          updateTitle={props.updateTitle}
         />
       ))}
     </div>
