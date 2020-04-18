@@ -3,10 +3,11 @@ import { BrowserRouter as Router, Route } from "react-router-dom";
 import AddTodo from "./components/AddTodo";
 import Todos from "./components/Todos";
 import AboutApi from "./components/pages/AboutApi";
-// import axios from "axios";
 import { v4 as uuid } from "uuid";
 import { library } from "@fortawesome/fontawesome-svg-core";
 import { faTrash, faCheckCircle } from "@fortawesome/free-solid-svg-icons";
+import dayjs from "dayjs";
+// import axios from "axios";
 
 library.add(faTrash, faCheckCircle);
 
@@ -47,8 +48,8 @@ function App() {
       id: uuid(),
       title,
       completed: false,
+      date: dayjs(),
     };
-
     setTodos([...todos, newTodo]);
 
     /* const newTodo = {
