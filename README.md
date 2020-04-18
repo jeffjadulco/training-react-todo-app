@@ -5,6 +5,8 @@ A simple todo app made with React
 
 *This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).*
 
+### [View Demo](https://jeffjads.github.io/training-react-todo-app/)
+
 ## Purpose
 - Learn React!
 - Learn styling using [Tailwind](https://github.com/tailwindcss/tailwindcss)
