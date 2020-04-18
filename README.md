@@ -1,11 +1,12 @@
 # :memo: Todo App
 [![License: MIT](https://img.shields.io/badge/License-MIT-blue.svg)](https://opensource.org/licenses/MIT)
+[![Netlify Status](https://api.netlify.com/api/v1/badges/06c49d2f-dc95-4aa3-8e65-9c603926ca1e/deploy-status)](https://app.netlify.com/sites/jeffjads-todo-app-react/deploys)
 
 A simple todo app made with React 
 
 *This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).*
 
-### [View Demo](https://jeffjads.github.io/training-react-todo-app/)
+### [View Demo](https://jeffjads-todo-app-react.netlify.app/)
 
 ## Purpose
 - Learn React!
