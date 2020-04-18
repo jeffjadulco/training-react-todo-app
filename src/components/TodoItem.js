@@ -1,35 +1,30 @@
-import React, { useState } from "react";
+import React from "react";
 import PropTypes from "prop-types";
 import "@fortawesome/fontawesome-free";
 
 function TodoItem(props) {
-  const [text, setText] = useState(props.todo.title);
-
   const textClassName =
-    "w-full truncate px-2 py-2 font-bold text-lg" +
+    "w-full break-words px-2 py-2 mb-4 font-bold text-lg" +
     (props.todo.completed ? " line-through text-gray-500" : " text-gray-800");
 
-  const onSubmit = (e) => {
-    e.preventDefault();
-    props.updateTitle(props.todo.id, text);
+  const onInput = (e) => {
+    props.updateTitle(props.todo.id, e.target.innerText);
   };
 
   return (
-    <div className="max-w-md min-w-full rounded shadow-lg p-3 mx-auto my-3 md:my-5">
+    <div className="max-w-md min-w-full rounded shadow-lg p-3 mx-auto my-3 md:my-5 relative">
       <div className="">
-        {/* <p className="break-words">{props.todo.title}</p> */}
-        <form onSubmit={onSubmit}>
-          <input
-            type="text"
-            className={textClassName}
-            value={text}
-            onChange={(e) => {
-              setText(e.target.value);
-            }}
-          />
-        </form>
+        <p
+          className={textClassName}
+          contentEditable="true"
+          spellCheck="false"
+          onBlur={onInput}
+          suppressContentEditableWarning="true"
+        >
+          {props.todo.title}
+        </p>
       </div>
-      <div className="flex flex-row-reverse items-center">
+      <div className="flex flex-row-reverse items-center absolute bottom-0 right-0 mb-3 mr-3">
         <div className="flex-shrink-0 px-1">
           <button
             className="text-md font-normal text-gray-400 hover:text-red-500 focus:outline-none"

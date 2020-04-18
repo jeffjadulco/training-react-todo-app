@@ -1,10 +1,9 @@
 import React, { useState, useEffect } from "react";
 import { BrowserRouter as Router, Route } from "react-router-dom";
-import Header from "./components/layout/Header";
 import AddTodo from "./components/AddTodo";
 import Todos from "./components/Todos";
 import AboutApi from "./components/pages/AboutApi";
-import axios from "axios";
+// import axios from "axios";
 import { v4 as uuid } from "uuid";
 import { library } from "@fortawesome/fontawesome-svg-core";
 import { faTrash, faCheckCircle } from "@fortawesome/free-solid-svg-icons";
@@ -13,6 +12,23 @@ library.add(faTrash, faCheckCircle);
 
 function App() {
   const [todos, setTodos] = useState([]);
+
+  // Initially get cached todo items from localStorage
+  useEffect(() => {
+    const cached = JSON.parse(localStorage.getItem("todos")) || [];
+    setTodos(cached, []);
+  }, []);
+
+  // Update localStorage when 'todos' changes
+  useEffect(() => {
+    localStorage.setItem("todos", JSON.stringify(todos));
+  }, [todos]);
+
+  /* useEffect(() => {
+    axios
+      .get("https://jsonplaceholder.typicode.com/todos?_limit=10")
+      .then((res) => setTodos(res.data));
+  }, []); */
 
   // Toggle Todo as Completed or Not
   const toggleComplete = (id) => {
@@ -27,15 +43,15 @@ function App() {
   // Add a New Todo
   const addTodo = (title) => {
     if (!title) return;
-    /* const newTodo = {
+    const newTodo = {
       id: uuid(),
       title,
-      completed: false
-    }
+      completed: false,
+    };
 
-    setTodos([...todos, newTodo]); */
+    setTodos([...todos, newTodo]);
 
-    const newTodo = {
+    /* const newTodo = {
       id: uuid(),
       title,
       completed: false,
@@ -43,16 +59,16 @@ function App() {
 
     axios
       .post("https://jsonplaceholder.typicode.com/todos", newTodo)
-      .then((res) => setTodos([...todos, res.data]));
+      .then((res) => setTodos([...todos, res.data])); */
   };
 
   // Delete Todo
   const deleteTodo = (id) => {
-    // setTodos([...todos.filter(todo => todo.id !== id)]);
+    setTodos([...todos.filter((todo) => todo.id !== id)]);
 
-    axios
+    /* axios
       .delete(`https://jsonplaceholder.typicode.com/todos/${id}`)
-      .then((res) => setTodos([...todos.filter((todo) => todo.id !== id)]));
+      .then((res) => setTodos([...todos.filter((todo) => todo.id !== id)])); */
   };
 
   const updateTitle = (id, title) => {
@@ -64,16 +80,9 @@ function App() {
     );
   };
 
-  useEffect(() => {
-    axios
-      .get("https://jsonplaceholder.typicode.com/todos?_limit=10")
-      .then((res) => setTodos(res.data));
-  }, []);
-
   return (
     <Router>
       <div className="container mx-auto px-4">
-        {/* <Header /> */}
         <Route exact path="/">
           <AddTodo addTodo={addTodo} />
           <Todos
