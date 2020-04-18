@@ -5,7 +5,7 @@ A simple todo app made with React
 
 *This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).*
 
-### [View Demo](https://jeffjads.github.io/training-react-todo-app/)
+### [View Demo](https://jeffjads-todo-app-react.netlify.app/)
 
 ## Purpose
 - Learn React!
